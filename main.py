@@ -5,10 +5,6 @@ from utils.logger import logger
 from core.monitor import MediaMonitor
 
 def main():
-    logger.info("========================================")
-    logger.info("   PyVideoScraper v3.0 - 监控增强版")
-    logger.info("========================================")
-
     # 1. 读取基础配置
     scan_str = settings.get("General", "scan_path")
     lib_name = settings.get("Output", "library_folder", fallback="Anime_Library")
