@@ -24,7 +24,12 @@ DEFAULT_CONFIG = {
     "Output": {
         "download_images": "True",
         "generate_nfo": "True",
-        "rename_files": "False"
+        "create_hardlink": "False",
+        "library_folder": "Anime_Library"
+    },
+    "Monitor": {
+        "enable_monitor": "False",
+        "interval": "300"
     }
 }
 

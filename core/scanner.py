@@ -41,13 +41,21 @@ class VideoScanner:
 
             if size_mb < self.min_size_mb:
                 return None
+            
+            # 简单的文件锁定检查：尝试以追加模式打开
+            # 如果文件被 BT 软件独占锁定，这一步会抛出 PermissionError
+            with open(file_path, 'a'):
+                pass
 
             return VideoFile(
                 path=file_path,
-                filename=file_path.stem,
-                extension=file_path.suffix.lower(),
-                size_mb=round(size_mb, 2)
+                filename=file_path.stem, #  .stem提取不包含扩展名（后缀名）的文件名部分
+                extension=file_path.suffix.lower(), # 包含点号的后缀名，如 '.mp4'
+                size_mb=round(size_mb, 2) # 保留两位小数
             )
         except OSError:
             # 处理权限不足或文件被占用等异常
+            return None
+        except IOError:
+            # logger.debug(f"文件可能正在被使用/下载中，跳过: {file_path.name}")
             return None
