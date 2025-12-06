@@ -28,8 +28,57 @@
 ```bash
 git clone https://github.com/yourusername/PyVideoScraper.git
 cd PyVideoScraper
+```
 
----
 ### 2. 安装依赖
 ```bash
 pip install -r requirements.txt
+```
+
+### 3. 配置说明
+```bash
+[General]
+# 默认扫描的下载目录
+scan_path = /path/to/downloads
+# 日志级别
+log_level = INFO
+
+[Network]
+# 网络超时 (秒)
+timeout = 30
+# 重试次数
+retry_count = 3
+# 代理设置
+# 格式: http://127.0.0.1:7890
+proxy =
+
+[Scanner]
+# 需要识别的视频后缀
+video_extensions = .mp4, .mkv, .avi, .wmv
+# 忽略小于该大小的文件 (MB)，过滤样本和预告片
+min_file_size = 50
+
+[Scraper]
+# 数据源
+source = tmdb
+# 语言
+language = zh-CN
+# TMDB API Key (必填，请去 https://www.themoviedb.org/ 申请)
+api_key = YOUR_TMDB_API_KEY_HERE
+
+[Output]
+# 是否下载图片
+download_images = True
+# 是否生成 NFO
+generate_nfo = True
+# 是否创建硬链接 (推荐开启)
+create_hardlink = True
+# 整理后的媒体库文件夹名称 (会自动创建在扫描目录下)
+library_folder = Anime_Library
+
+[Monitor]
+# 是否开启持续监控模式
+enable_monitor = False
+# 扫描间隔 (秒)
+interval = 300
+```
