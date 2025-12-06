@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**PyVideoScraper** 是一个轻量级、模块化且高效的本地视频文件刮削与整理工具。专门针对番剧设计（番剧效果比较好，其余未经测试），支持从文件名智能解析元数据，自动获取 TMDB 信息，生成 NFO 文件，并创建**硬链接**。
+**PyVideoScraper** 是一个轻量级、模块化且高效的本地视频文件刮削与整理工具。专门针对番剧设计（番剧效果比较好，其余未经测试），支持从文件名（注意规范命名，非规范命名识别效果不定）智能解析元数据，自动获取 TMDB 信息，生成 NFO 文件，并创建**硬链接**。
 
 ---
 
