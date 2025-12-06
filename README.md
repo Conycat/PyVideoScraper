@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**PyVideoScraper** 是一个轻量级、模块化且高效的本地视频文件刮削与整理工具。专门针对番剧（Anime）设计，支持从文件名智能解析元数据，自动获取 TMDB 信息，生成 NFO 文件，并通过**硬链接**（Hard Link）构建完美的媒体库目录结构，无缝对接 Emby、Plex、Kodi 等媒体服务器。
+**PyVideoScraper** 是一个轻量级、模块化且高效的本地视频文件刮削与整理工具。专门针对番剧设计，支持从文件名智能解析元数据，自动获取 TMDB 信息，生成 NFO 文件，并创建**硬链接**。
 
 ---
 
@@ -28,3 +28,7 @@
 ```bash
 git clone https://github.com/yourusername/PyVideoScraper.git
 cd PyVideoScraper
+
+### 2. 安装依赖
+```bash
+pip install -r requirements.txt
