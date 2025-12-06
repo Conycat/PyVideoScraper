@@ -1,5 +1,5 @@
 import time
-import gc  # [新增] 引入垃圾回收模块
+import gc
 from pathlib import Path
 from utils.logger import logger
 from utils.config import settings
