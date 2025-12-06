@@ -29,6 +29,7 @@
 git clone https://github.com/yourusername/PyVideoScraper.git
 cd PyVideoScraper
 
+---
 ### 2. 安装依赖
 ```bash
 pip install -r requirements.txt
