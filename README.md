@@ -1,4 +1,4 @@
-# PyVideoScraper - 自动化番剧刮削与整理工具(测试版)
+# PyVideoScraper - 自动化番剧刮削与整理工具(自用测试版)
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
