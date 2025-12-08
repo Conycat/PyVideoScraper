@@ -1,4 +1,5 @@
 import os
+import sys
 import configparser
 
 # 定义默认配置字典，用于初始化
@@ -34,8 +35,17 @@ DEFAULT_CONFIG = {
 }
 
 class ConfigManager:
-    def __init__(self, config_path='config.ini'):
-        self.config_path = config_path
+    def __init__(self, config_filename='config.ini'):
+        # [修改] 判断是否是打包后的环境 (Frozen)
+        if getattr(sys, 'frozen', False):
+            # 如果是 EXE，配置文件路径 = EXE 所在目录
+            base_path = os.path.dirname(sys.executable)
+        else:
+            # 如果是脚本，配置文件路径 = 项目根目录
+            # (假设 config.py 在 utils 下，根目录是 utils 的上一级)
+            base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        
+        self.config_path = os.path.join(base_path, config_filename)
         self.config = configparser.ConfigParser()
         self._load_config()
 

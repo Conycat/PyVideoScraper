@@ -1,6 +1,8 @@
 import time
 import gc
+import threading
 from pathlib import Path
+
 from utils.logger import logger
 from utils.config import settings
 from core.scanner import VideoScanner
@@ -30,6 +32,10 @@ class MediaMonitor:
         
         # 剧集处理记录 (用于单次循环内去重)
         self.processed_shows = set()
+
+        # [新增] 运行状态标记
+        self._running = False
+        self._thread = None
 
     def run_once(self):
         """执行一次完整的扫描流程"""
@@ -125,3 +131,31 @@ class MediaMonitor:
                 time.sleep(interval)
         except KeyboardInterrupt:
             logger.info("用户停止监控")
+
+    def start_background_loop(self, interval: int):
+        """[新增] 在后台线程启动监控"""
+        if self._running:
+            return False
+        
+        self._running = True
+        self._thread = threading.Thread(target=self._loop_logic, args=(interval,), daemon=True)
+        self._thread.start()
+        return True
+
+    def stop(self):
+        """[新增] 停止监控"""
+        self._running = False
+        if self._thread:
+            self._thread.join(timeout=2) # 等待线程结束
+            self._thread = None
+
+    def _loop_logic(self, interval: int):
+        """内部循环逻辑"""
+        logger.info(f"启动监控模式，扫描间隔: {interval} 秒")
+        while self._running:
+            self.run_once()
+            
+            # 分段休眠，以便能快速响应 stop 指令
+            for _ in range(interval):
+                if not self._running: break
+                time.sleep(1)

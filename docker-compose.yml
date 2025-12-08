@@ -1,0 +1,20 @@
+version: '3.10'
+
+services:
+  pyvideoscraper:
+    image: pyvideoscraper:latest
+    container_name: pyvideoscraper
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # 1. 挂载配置文件 (需要在宿主机先创建好 config.ini)
+      - ./config.ini:/app/config.ini
+      # 2. 挂载日志目录
+      - ./logs:/app/logs
+      # 3. 挂载你的视频下载/仓库目录
+      # 格式: 宿主机路径:容器内路径
+      - /path/to/your/downloads:/data
+    environment:
+      - TZ=Asia/Shanghai
