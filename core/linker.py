@@ -5,6 +5,16 @@ from .types import VideoFile, AnimeMeta
 from utils.logger import logger
 
 class FileLinker:
+    '''
+    FileLinker 的 Docstring
+    这是一个用于创建动漫视频文件硬链接的类，旨在将处理后的文件按照指定的目录结构组织到目标库目录中。
+    主要功能包括：
+    1. 根据 TMDB 返回的官方中文名或解析出的标题，创建一级目录。
+    2. 按照季数创建二级目录，命名为 "Season XX" 格式。
+    3. 生成符合 Kodi/Emby 标准的文件命名格式，如 "标题 - S01E01.ext"。
+    4. 创建硬链接，避免重复存储文件数据，节省磁盘空间。
+    该类通过灵活的配置选项，允许用户选择是否启用硬链接功能，以满足不同的使用需求。
+    '''
     def __init__(self, target_root: Path, enabled: bool = False):
         self.target_root = target_root
         self.enabled = enabled

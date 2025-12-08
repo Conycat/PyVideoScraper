@@ -3,6 +3,16 @@ from typing import List, Generator, Set
 from .types import VideoFile
 
 class VideoScanner:
+    '''
+    VideoScanner 的 Docstring
+    这是一个用于扫描指定目录下视频文件的类，旨在识别符合条件的动漫视频文件并封装为 VideoFile 对象。
+    主要功能包括：
+    1. 支持多种视频文件后缀的过滤。
+    2. 基于文件大小的过滤，排除过小的无效文件。
+    3. 文件锁定检查，避免处理正在被下载或占用的文件。
+    4. 使用生成器模式，逐个返回符合条件的 VideoFile 对象，提高内存效率。
+    该类适用于需要批量处理视频文件的场景，能够有效提升文件扫描的效率和准确性。
+    '''
     def __init__(self, extensions: List[str], min_size_mb: int):
         """
         初始化扫描器

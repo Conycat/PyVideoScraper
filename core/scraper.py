@@ -6,6 +6,17 @@ from utils.config import settings
 from utils.logger import logger
 
 class TMDBScraper:
+    '''
+    TMDBScraper 的 Docstring
+    这是一个用于与 TMDB (The Movie Database) API 交互的类，旨在为动漫视频文件获取准确的元数据。
+    主要功能包括：
+    1. 搜索番剧，返回对应的 TMDB ID 和官方名称。
+    2. 获取单集详情，包括标题、简介和剧照路径。
+    3. 获取剧集层面的详情，用于生成 tvshow.nfo 和下载总海报。
+    4. 内存缓存机制，减少重复的网络请求，提高效率。
+    5. 错误处理和日志记录，确保在网络请求失败时提供有用的信息。
+    该类通过灵活的配置选项，允许用户设置 API Key、语言和代理，以满足不同的使用需求。
+    '''
     BASE_URL = "https://api.themoviedb.org/3"
 
     def __init__(self):

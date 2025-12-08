@@ -1,6 +1,7 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException, BackgroundTasks
-from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse, FileResponse
 from pydantic import BaseModel
 from pathlib import Path
 from typing import Optional, Dict
@@ -11,11 +12,12 @@ from core.monitor import MediaMonitor
 
 # 初始化 FastAPI
 app = FastAPI(title="PyVideoScraper API", version="1.0.0")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 async def root():
-    # 访问 http://localhost:8000/ 时自动跳转到 /docs
-    return RedirectResponse(url="/docs")
+    # 返回 index.html
+    return FileResponse('static/index.html')
 
 # --- [核心修复] 初始化逻辑 ---
 
@@ -53,6 +55,12 @@ class ConfigUpdate(BaseModel):
 class ScanOptions(BaseModel):
     interval: Optional[int] = 300
 
+
+class IdentifyRequest(BaseModel):
+    filename: str
+    keyword: Optional[str] = None
+    season: Optional[int] = None
+    episode: Optional[int] = None
 # --- 1. 配置接口 ---
 
 @app.get("/api/config")
@@ -128,6 +136,27 @@ def get_logs(lines: int = 50):
             return {"logs": all_lines[-lines:]}
     except Exception as e:
         return {"logs": [f"Error reading logs: {e}"]}
+@app.get("/api/unidentified")
+def get_unidentified_files():
+    """获取当前未识别的视频文件列表"""
+    return {
+        "count": len(monitor.unidentified_files),
+        "files": monitor.unidentified_files
+    }
 
+@app.post("/api/identify")
+def manual_identify(req: IdentifyRequest):
+    """提交手动识别信息"""
+    # 至少要有一个参数被提供
+    if not req.keyword and req.season is None and req.episode is None:
+         raise HTTPException(status_code=400, detail="未提供任何修正信息")
+
+    success = monitor.manual_identify(req.filename, req.keyword, req.season, req.episode)
+    
+    if success:
+        return {"status": "success", "message": "已保存修正信息"}
+    else:
+        raise HTTPException(status_code=404, detail=f"无法找到 '{req.keyword}'")
+    
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -36,6 +36,16 @@ DEFAULT_CONFIG = {
 }
 
 class ConfigManager:
+    '''
+    ConfigManager 的 Docstring
+    这是一个用于管理应用程序配置的类，旨在简化配置文件的读取和写入操作。
+    主要功能包括：
+    1. 自动检测配置文件路径，支持打包后的可执行文件和脚本运行环境。
+    2. 加载配置文件，如果文件不存在则创建一个包含默认设置的配置文件。
+    3. 提供便捷的方法获取不同类型的配置值（字符串、整数、布尔值和列表）。
+    4. 支持 UTF-8 编码，确保配置文件中的中文字符正确显示。
+    该类通过灵活的设计，方便其他模块轻松访问和管理应用程序的配置选项。
+    '''
     def __init__(self, config_filename='config.ini'):
         # [修改] 判断是否是打包后的环境 (Frozen)
         if getattr(sys, 'frozen', False):

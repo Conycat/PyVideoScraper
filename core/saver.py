@@ -7,6 +7,16 @@ from .types import VideoFile, AnimeMeta
 from utils.logger import logger
 
 class DataSaver:
+    '''
+    DataSaver 的 Docstring
+    这是一个用于保存动漫元数据和相关资源的类，旨在将从 TMDB 获取的单集和剧集层面的信息保存为 Kodi/Emby 兼容的格式。
+    主要功能包括：
+    1. 生成单集的 .nfo 文件，包含标题、季数、集数、简介、评分等信息。
+    2. 下载单集封面图片，命名为视频文件名加上 "-thumb.jpg"。
+    3. 生成剧集层面的 tvshow.nfo 文件，包含剧集标题、简介、首播日期等信息。
+    4. 下载剧集的海报和背景图，分别命名为 poster.jpg 和 fanart.jpg。
+    该类通过灵活的配置选项，允许用户选择是否下载图片和生成 .nfo 文件，以满足不同的使用需求。
+    '''
     IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w780"
 
     def __init__(self, download_images: bool = True, generate_nfo: bool = True):

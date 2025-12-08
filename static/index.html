@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyVideoScraper Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sidebar-width: 260px;
+            --sidebar-bg: #111827;
+            --sidebar-text: #9ca3af;
+            --primary-color: #6366f1;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #app { display: flex; height: 100vh; }
+
+        /* 左侧栏 */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+        .brand {
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-menu { flex-grow: 1; padding: 1.5rem 1rem; overflow-y: auto; }
+        .nav-item {
+            display: flex; align-items: center; padding: 0.75rem 1rem; margin-bottom: 0.5rem;
+            border-radius: 8px; cursor: pointer; transition: all 0.2s; font-weight: 500; color: #d1d5db;
+        }
+        .nav-item:hover { background-color: rgba(255,255,255,0.05); color: white; }
+        .nav-item.active { background-color: var(--primary-color); color: white; }
+        .nav-item i { width: 24px; text-align: center; margin-right: 10px; }
+        .sidebar-footer { padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); background-color: rgba(0,0,0,0.2); }
+
+        /* 右侧主内容 */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .top-header {
+            background: white; padding: 1rem 2rem; border-bottom: 1px solid #e5e7eb;
+            display: flex; justify-content: space-between; align-items: center; height: 70px;
+        }
+        .content-scroll-area { padding: 2rem; overflow-y: auto; height: calc(100vh - 70px); }
+
+        /* 状态指示器 */
+        .status-indicator { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .status-running { background: #dcfce7; color: #166534; }
+        .status-stopped { background: #f3f4f6; color: #374151; }
+        .dot { height: 8px; width: 8px; border-radius: 50%; margin-right: 6px; background: currentColor; }
+
+        /* 按钮 */
+        .btn-control {
+            width: 100%; margin-bottom: 0.5rem; border: none; padding: 10px;
+            border-radius: 6px; font-weight: 600; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .btn-start { background: #10b981; color: white; }
+        .btn-start:hover { background: #059669; }
+        .btn-stop { background: #ef4444; color: white; }
+        .btn-stop:hover { background: #dc2626; }
+        .btn-once { background: #3b82f6; color: white; }
+        .btn-once:hover { background: #2563eb; }
+
+        /* 日志窗口 (终端风格) */
+        .terminal-container {
+            background: #1e1e1e;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 180px); /* 占满剩余空间 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .terminal-header {
+            background: #252526;
+            padding: 8px 15px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        .terminal-body {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto; /* 只有这里滚动 */
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            scrollbar-width: thin;
+            scrollbar-color: #444 #1e1e1e;
+        }
+        .log-time { color: #569cd6; margin-right: 10px; opacity: 0.7; }
+        .log-INFO { color: #4ec9b0; }
+        .log-WARNING { color: #cca700; }
+        .log-ERROR { color: #f44747; font-weight: bold; }
+
+        /* 开关样式 */
+        .form-check-input { cursor: pointer; }
+        .form-check-input:checked { background-color: #10b981; border-color: #10b981; }
+
+        /* 表格与设置 */
+        .card-box { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e5e7eb; overflow: hidden; }
+        .table th { background: #f9fafb; font-size: 0.85rem; text-transform: uppercase; color: #6b7280; font-weight: 600; }
+        .table td { vertical-align: middle; }
+        .badge-count { background: #ef4444; color: white; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; margin-left: auto; }
+        
+        .config-item { margin-bottom: 1.5rem; }
+        .config-label { font-size: 0.85rem; font-weight: 600; color: #6b7280; margin-bottom: 0.5rem; display: block; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    
+    <!-- 左侧栏 -->
+    <div class="sidebar">
+        <div class="brand">
+            <i class="fa-solid fa-server me-2"></i> PyScraper
+        </div>
+
+        <div class="nav-menu">
+            <div class="nav-item" :class="{ active: currentTab === 'logs' }" @click="currentTab = 'logs'">
+                <i class="fa-solid fa-terminal"></i> 运行日志
+            </div>
+            <div class="nav-item" :class="{ active: currentTab === 'fix' }" @click="currentTab = 'fix'; fetchUnidentified()">
+                <i class="fa-solid fa-wrench"></i> 人工修正
+                <span class="badge-count" v-if="unidentifiedCount > 0">{{ unidentifiedCount }}</span>
+            </div>
+            <div class="nav-item" :class="{ active: currentTab === 'config' }" @click="currentTab = 'config'; fetchConfig()">
+                <i class="fa-solid fa-gear"></i> 参数设置
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <div v-if="!status.running">
+                <button class="btn-control btn-start" @click="startScan">
+                    <i class="fa-solid fa-play me-2"></i> 启动监控
+                </button>
+                <button class="btn-control btn-once" @click="scanOnce">
+                    <i class="fa-solid fa-bolt me-2"></i> 单次扫描
+                </button>
+            </div>
+            <div v-else>
+                <button class="btn-control btn-stop" @click="stopScan">
+                    <i class="fa-solid fa-stop me-2"></i> 停止监控
+                </button>
+                <div class="text-center text-muted small mt-2">
+                    <i class="fa-solid fa-clock me-1"></i> 每 {{ scanInterval }} 秒扫描
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右侧内容 -->
+    <div class="main-content">
+        <!-- 顶部通栏 -->
+        <div class="top-header">
+            <div>
+                <h5 class="m-0 fw-bold">{{ pageTitle }}</h5>
+                <small class="text-muted" v-if="status.scan_path">Scan: {{ status.scan_path }}</small>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="status-indicator" :class="status.running ? 'status-running' : 'status-stopped'">
+                    <span class="dot"></span>
+                    {{ status.running ? 'MONITORING' : 'IDLE' }}
+                </div>
+                <button class="btn btn-light btn-sm border" @click="refreshData">
+                    <i class="fa-solid fa-rotate"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 内容滚动区 -->
+        <div class="content-scroll-area">
+            
+            <!-- 1. 日志视图 -->
+            <div v-if="currentTab === 'logs'">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="d-flex align-items-center text-white-50 small">
+                            <i class="fa-regular fa-file-code me-2"></i> scraper.log
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <!-- 自动滚动开关 -->
+                            <div class="form-check form-switch m-0 d-flex align-items-center">
+                                <input class="form-check-input me-2" type="checkbox" id="autoScrollSwitch" v-model="autoScroll">
+                                <label class="form-check-label text-white-50 small" for="autoScrollSwitch">自动滚动</label>
+                            </div>
+                            <button class="btn btn-sm btn-link text-white-50 text-decoration-none p-0" @click="copyLogs">
+                                <i class="fa-regular fa-copy me-1"></i>Copy
+                            </button>
+                        </div>
+                    </div>
+                    <div class="terminal-body" id="logContainer">
+                        <div v-for="(line, idx) in logs" :key="idx" v-html="formatLog(line)" style="margin-bottom: 2px;"></div>
+                        <div v-if="logs.length === 0" class="text-center text-muted mt-5">Waiting for logs...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 人工修正视图 -->
+            <div v-if="currentTab === 'fix'">
+                <div v-if="unidentifiedFiles.length === 0" class="text-center py-5">
+                    <i class="fa-regular fa-circle-check fa-4x text-success mb-3 opacity-50"></i>
+                    <h4>没有未识别的文件</h4>
+                    <p class="text-muted">所有视频都已自动刮削完成。</p>
+                </div>
+                <div v-else class="card-box">
+                    <table class="table mb-0 table-hover">
+                        <thead>
+                            <tr>
+                                <th style="padding-left: 1.5rem">文件名 / 原因</th>
+                                <th>自动解析</th>
+                                <!-- 模式 1 -->
+                                <th style="width: 200px" class="bg-light border-start">
+                                    <i class="fa-solid fa-magnifying-glass text-muted me-1"></i> 修正剧集
+                                </th>
+                                <!-- 模式 2 -->
+                                <th style="width: 100px" class="bg-light border-start">
+                                    <i class="fa-solid fa-s text-muted me-1"></i> 季
+                                </th>
+                                <!-- 模式 3 [新增] -->
+                                <th style="width: 100px" class="bg-light border-start">
+                                    <i class="fa-solid fa-e text-muted me-1"></i> 集
+                                </th>
+                                <th class="border-start">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="file in unidentifiedFiles" :key="file.filename">
+                                <td style="padding-left: 1.5rem">
+                                    <div class="fw-bold text-truncate" style="max-width: 200px" :title="file.filename">{{ file.filename }}</div>
+                                    <div>
+                                        <span class="badge" :class="file.reason && file.reason.includes('Series') ? 'bg-danger' : 'bg-warning text-dark'">
+                                            {{ file.reason || '未知' }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="small text-muted">解析结果</div>
+                                    <span class="badge bg-secondary">S{{ file.season || '?' }}</span>
+                                    <span class="badge bg-secondary ms-1">E{{ file.episode || '?' }}</span>
+                                </td>
+                                
+                                <!-- 输入框 A: 剧名/ID -->
+                                <td class="border-start">
+                                    <input type="text" class="form-control form-control-sm" 
+                                           v-model="file.inputKeyword" 
+                                           placeholder="搜 ID 或 剧名">
+                                </td>
+                                
+                                <!-- 输入框 B: 季数 -->
+                                <td class="border-start">
+                                    <input type="number" class="form-control form-control-sm" 
+                                           v-model="file.inputSeason" 
+                                           placeholder="S?">
+                                </td>
+
+                                <!-- 输入框 C: 集数 [新增] -->
+                                <td class="border-start">
+                                    <input type="number" class="form-control form-control-sm" 
+                                           v-model="file.inputEpisode" 
+                                           placeholder="E?">
+                                </td>
+                                
+                                <td class="border-start">
+                                    <button class="btn btn-primary btn-sm w-100" @click="submitIdentify(file)">
+                                        提交
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 3. 设置视图 -->
+            <div v-if="currentTab === 'config'">
+                <div class="row">
+                    <div class="col-md-6" v-for="(options, section) in config" :key="section">
+                        <div class="card-box p-4 mb-4">
+                            <h6 class="border-bottom pb-3 mb-3 fw-bold text-primary">
+                                <i class="fa-solid fa-cube me-2"></i>{{ section }}
+                            </h6>
+                            <div v-for="(val, key) in options" :key="key" class="config-item">
+                                <label class="config-label">{{ key }}</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" v-model="config[section][key]">
+                                    <button class="btn btn-outline-secondary" @click="saveConfig(section, key, config[section][key])">
+                                        保存
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.prod.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    const { createApp, ref, computed, onMounted, nextTick } = Vue;
+
+    createApp({
+        setup() {
+            const currentTab = ref('logs');
+            const logs = ref([]);
+            const status = ref({ running: false, scan_path: '', library_path: '' });
+            const config = ref({});
+            const unidentifiedFiles = ref([]);
+            const unidentifiedCount = ref(0);
+            const scanInterval = ref(300);
+            
+            // [新] 自动滚动开关，默认开启
+            const autoScroll = ref(true);
+
+            const API_BASE = '';
+
+            const pageTitle = computed(() => {
+                if(currentTab.value === 'logs') return '系统控制台';
+                if(currentTab.value === 'fix') return '人工干预修正';
+                if(currentTab.value === 'config') return '系统参数配置';
+                return '';
+            });
+
+            const formatLog = (line) => {
+                line = line.replace(/INFO/g, '<span class="log-INFO">INFO</span>');
+                line = line.replace(/WARNING/g, '<span class="log-WARNING">WARN</span>');
+                line = line.replace(/ERROR/g, '<span class="log-ERROR">ERR</span>');
+                line = line.replace(/^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/, '<span class="log-time">$1</span>');
+                return line;
+            };
+
+            const refreshData = () => {
+                fetchStatus();
+                if(currentTab.value === 'logs') fetchLogs();
+                // [关键修复] 当用户在 'fix' 页面时，禁止自动刷新列表！
+                // 只有手动点击 Refresh 按钮或切换 Tab 时才加载
+                // if(currentTab.value === 'fix') fetchUnidentified(); 
+            };
+
+            const fetchStatus = async () => {
+                try { status.value = (await axios.get(`${API_BASE}/api/status`)).data; } catch(e){}
+            };
+
+            const fetchLogs = async () => {
+                try {
+                    const res = await axios.get(`${API_BASE}/api/logs?lines=200`);
+                    logs.value = res.data.logs;
+                    
+                    // [关键逻辑] 只有当开关开启时，才执行滚动
+                    if (autoScroll.value && currentTab.value === 'logs') {
+                        scrollToBottom();
+                    }
+                } catch(e){}
+            };
+
+            const scrollToBottom = () => {
+                nextTick(() => {
+                    const box = document.getElementById('logContainer');
+                    if(box) box.scrollTop = box.scrollHeight;
+                });
+            };
+
+            const copyLogs = () => {
+                const text = logs.value.join('');
+                navigator.clipboard.writeText(text).then(() => alert('日志已复制'));
+            };
+
+            const startScan = async () => {
+                try { await axios.post(`${API_BASE}/api/scan/start`, { interval: 300 }); refreshData(); } 
+                catch(e) { alert(e.response?.data?.detail); }
+            };
+
+            const stopScan = async () => {
+                if(!confirm("确定停止?")) return;
+                await axios.post(`${API_BASE}/api/scan/stop`); refreshData();
+            };
+
+            const scanOnce = async () => {
+                await axios.post(`${API_BASE}/api/scan/once`);
+                alert("指令已发送");
+                currentTab.value = 'logs';
+                // 单次扫描时，强制打开自动滚动，方便查看结果
+                autoScroll.value = true;
+                refreshData();
+            };
+
+            const fetchUnidentified = async () => {
+                try {
+                    const res = await axios.get(`${API_BASE}/api/unidentified`);
+                    unidentifiedFiles.value = res.data.files.map(f => ({
+                        ...f, 
+                        // 解析原始 meta 中的季和集，用于展示
+                        season: f.parsed_season, // 后端需配合传递这些字段，或者前端不管
+                        episode: f.parsed_episode,
+                        inputKeyword: '', 
+                        inputSeason: '',
+                        inputEpisode: '' // [新增]
+                    }));
+                    unidentifiedCount.value = res.data.count;
+                } catch(e){}
+            };
+
+            const submitIdentify = async (file) => {
+                if(!file.inputKeyword && !file.inputSeason && !file.inputEpisode) {
+                    alert("请至少输入一项修正信息");
+                    return;
+                }
+                try {
+                    await axios.post(`${API_BASE}/api/identify`, {
+                        filename: file.filename,
+                        keyword: file.inputKeyword || null,
+                        season: file.inputSeason ? parseInt(file.inputSeason) : null,
+                        episode: file.inputEpisode ? parseInt(file.inputEpisode) : null // [新增]
+                    });
+                    
+                    // 提交成功后，从列表中移除该项 (乐观UI)
+                    unidentifiedFiles.value = unidentifiedFiles.value.filter(f => f.filename !== file.filename);
+                    unidentifiedCount.value = Math.max(0, unidentifiedCount.value - 1);
+                } catch(e){ 
+                    alert("提交失败: " + (e.response?.data?.detail || e.message)); 
+                }
+            };
+
+            const fetchConfig = async () => {
+                try { config.value = (await axios.get(`${API_BASE}/api/config`)).data; } catch(e){}
+            };
+
+            const saveConfig = async (section, key, value) => {
+                try { await axios.post(`${API_BASE}/api/config`, { section, key, value }); alert("保存成功"); } catch(e){ alert("保存失败"); }
+            };
+
+            onMounted(() => {
+                fetchStatus();
+                fetchLogs();
+                fetchUnidentified();
+                
+                // 定时轮询状态和日志
+                setInterval(() => {
+                    if (document.visibilityState === 'visible') {
+                        refreshData();
+                    }
+                }, 3000);
+            });
+
+            return {
+                currentTab, logs, status, config, unidentifiedFiles, unidentifiedCount, scanInterval, autoScroll,
+                formatLog, refreshData, startScan, stopScan, scanOnce, fetchLogs, copyLogs,
+                fetchUnidentified, submitIdentify, fetchConfig, saveConfig, 
+                // [新增] 页面标题计算
+                pageTitle: computed(() => {
+                    if(currentTab.value === 'logs') return '系统控制台';
+                    if(currentTab.value === 'fix') return '人工干预修正';
+                    if(currentTab.value === 'config') return '系统参数配置';
+                    return '';
+                })
+            };
+        }
+    }).mount('#app');
+</script>
+</body>
+</html>
