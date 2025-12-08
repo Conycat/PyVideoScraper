@@ -1,0 +1,237 @@
+2025-12-07 22:12:32 | INFO     | monitor    | --- 开始新一轮扫描: C:\Users\ly177\Desktop\anime\Downloads\Torrents ---
+2025-12-07 22:12:32 | INFO     | scraper    |     [Net] 搜索成功: Spy x Family -> 间谍过家家 (ID: 120089)
+2025-12-07 22:12:32 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E38.mkv
+2025-12-07 22:12:33 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:12:33 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/38?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:12:33 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E39.mkv
+2025-12-07 22:12:33 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/39?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:12:33 | INFO     | scraper    |     [Net] 搜索成功: Chi. Chikyuu no Undou ni Tsuite -> 地。—关于地球的运动— (ID: 204635)
+2025-12-07 22:12:33 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E08.mkv
+2025-12-07 22:12:34 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:12:34 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:12:35 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E08-thumb.jpg
+2025-12-07 22:12:35 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E10.mkv
+2025-12-07 22:12:35 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:12:35 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E10-thumb.jpg
+2025-12-07 22:12:35 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E12.mkv
+2025-12-07 22:12:36 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:12:36 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E12-thumb.jpg
+2025-12-07 22:12:36 | INFO     | scraper    |     [Net] 搜索成功: Watashi wo Tabetai, Hitodenashi -> 想吃掉我的非人少女 (ID: 274810)
+2025-12-07 22:12:36 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E01.mkv
+2025-12-07 22:12:37 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:12:37 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E01.nfo
+2025-12-07 22:12:38 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E01-thumb.jpg
+2025-12-07 22:12:38 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E02.mkv
+2025-12-07 22:12:38 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E02.nfo
+2025-12-07 22:12:38 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E02-thumb.jpg
+2025-12-07 22:12:38 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E03.mkv
+2025-12-07 22:12:39 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E03.nfo
+2025-12-07 22:12:39 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E03-thumb.jpg
+2025-12-07 22:12:39 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - S03E01.mp4
+2025-12-07 22:12:39 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - S03E01.nfo
+2025-12-07 22:12:40 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - S03E01-thumb.jpg
+2025-12-07 22:12:40 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - S03E02.mp4
+2025-12-07 22:12:40 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - S03E02.nfo
+2025-12-07 22:12:41 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - S03E02-thumb.jpg
+2025-12-07 22:12:41 | INFO     | scraper    |     [Net] 搜索成功: Spy x Family - -> 间谍过家家 (ID: 120089)
+2025-12-07 22:12:41 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - - S01E38.mkv
+2025-12-07 22:12:41 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/38?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:12:41 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - - S01E39.mkv
+2025-12-07 22:12:42 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/39?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:12:42 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - - S03E01.mp4
+2025-12-07 22:12:42 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - - S03E01.nfo
+2025-12-07 22:12:42 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - - S03E01-thumb.jpg
+2025-12-07 22:12:42 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - - S03E02.mp4
+2025-12-07 22:12:43 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - - S03E02.nfo
+2025-12-07 22:12:43 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - - S03E02-thumb.jpg
+2025-12-07 22:12:43 | INFO     | scraper    |     [Net] 搜索成功: Watashi wo Tabetai, Hitodenashi - -> 想吃掉我的非人少女 (ID: 274810)
+2025-12-07 22:12:43 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - - S01E01.mkv
+2025-12-07 22:12:44 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - - S01E01.nfo
+2025-12-07 22:12:44 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - - S01E01-thumb.jpg
+2025-12-07 22:12:44 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - - S01E02.mkv
+2025-12-07 22:12:45 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - - S01E02.nfo
+2025-12-07 22:12:45 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - - S01E02-thumb.jpg
+2025-12-07 22:12:45 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - - S01E03.mkv
+2025-12-07 22:12:45 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - - S01E03.nfo
+2025-12-07 22:12:46 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - - S01E03-thumb.jpg
+2025-12-07 22:12:46 | INFO     | scraper    |     [Net] 搜索成功: Chi. Chikyuu no Undou ni Tsuite - -> 地。—关于地球的运动— (ID: 204635)
+2025-12-07 22:12:46 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - - S01E08.mkv
+2025-12-07 22:12:46 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:12:47 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - - S01E08-thumb.jpg
+2025-12-07 22:12:47 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - - S01E10.mkv
+2025-12-07 22:12:47 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:12:48 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - - S01E10-thumb.jpg
+2025-12-07 22:12:48 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - - S01E12.mkv
+2025-12-07 22:12:48 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:12:49 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - - S01E12-thumb.jpg
+2025-12-07 22:12:49 | INFO     | monitor    | [System] 正在执行内存回收...
+2025-12-07 22:12:49 | INFO     | scraper    |     [System] 内存释放: 已清理 6 条缓存并重置网络连接
+2025-12-07 22:12:49 | INFO     | monitor    | [System] 内存回收完成，回收对象数: 109
+2025-12-07 22:12:49 | INFO     | monitor    | --- 扫描结束，处理文件数: 20 ---
+2025-12-07 22:15:31 | INFO     | monitor    | --- 开始新一轮扫描: C:\Users\ly177\Desktop\anime\Downloads\Torrents ---
+2025-12-07 22:15:32 | INFO     | scraper    |     [Net] 搜索成功: Spy x Family -> 间谍过家家 (ID: 120089)
+2025-12-07 22:15:32 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E38.mkv
+2025-12-07 22:15:32 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:15:33 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/38?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:15:33 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E39.mkv
+2025-12-07 22:15:33 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/39?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:15:33 | INFO     | scraper    |     [Net] 搜索成功: Chi. Chikyuu no Undou ni Tsuite -> 地。—关于地球的运动— (ID: 204635)
+2025-12-07 22:15:33 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E08.mkv
+2025-12-07 22:15:33 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:15:33 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:15:34 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E08-thumb.jpg
+2025-12-07 22:15:34 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E10.mkv
+2025-12-07 22:15:34 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:15:35 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E10-thumb.jpg
+2025-12-07 22:15:35 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E12.mkv
+2025-12-07 22:15:35 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:15:36 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E12-thumb.jpg
+2025-12-07 22:15:36 | INFO     | scraper    |     [Net] 搜索成功: Watashi wo Tabetai, Hitodenashi -> 想吃掉我的非人少女 (ID: 274810)
+2025-12-07 22:15:36 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E01.mkv
+2025-12-07 22:15:36 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:15:36 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E01.nfo
+2025-12-07 22:15:37 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E01-thumb.jpg
+2025-12-07 22:15:37 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E02.mkv
+2025-12-07 22:15:41 | INFO     | main       | ========================================
+2025-12-07 22:15:41 | INFO     | main       |    PyVideoScraper v3.1 - 独立路径版
+2025-12-07 22:15:41 | INFO     | main       | ========================================
+2025-12-07 22:16:04 | INFO     | main       | [*] 扫描来源: C:\Users\ly177\Desktop\anime\Downloads\Torrents
+2025-12-07 22:16:37 | INFO     | main       | ========================================
+2025-12-07 22:16:37 | INFO     | main       |    PyVideoScraper v3.1 - 独立路径版
+2025-12-07 22:16:37 | INFO     | main       | ========================================
+2025-12-07 22:16:42 | INFO     | main       | [*] 扫描来源: C:\Users\ly177\Desktop\anime\Downloads\Torrents
+2025-12-07 22:16:45 | INFO     | main       | [*] 整理目标: C:\Users\ly177\Desktop\anime\Media\Anime
+2025-12-07 22:21:57 | INFO     | server     | [Server] Mode: 使用独立硬链接目录 -> C:\Users\ly177\Desktop\anime\Media\Anime
+2025-12-07 22:22:05 | INFO     | monitor    | --- 开始新一轮扫描: C:\Users\ly177\Desktop\anime\Downloads\Torrents ---
+2025-12-07 22:22:06 | INFO     | scraper    |     [Net] 搜索成功: Spy x Family -> 间谍过家家 (ID: 120089)
+2025-12-07 22:22:06 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E38.mkv
+2025-12-07 22:22:06 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:22:07 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/38?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:22:07 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E39.mkv
+2025-12-07 22:22:07 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/39?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:22:07 | INFO     | scraper    |     [Net] 搜索成功: Chi. Chikyuu no Undou ni Tsuite -> 地。—关于地球的运动— (ID: 204635)
+2025-12-07 22:22:07 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E08.mkv
+2025-12-07 22:22:07 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:22:07 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:22:08 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E08-thumb.jpg
+2025-12-07 22:22:08 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E10.mkv
+2025-12-07 22:22:08 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:22:09 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E10-thumb.jpg
+2025-12-07 22:22:09 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E12.mkv
+2025-12-07 22:22:09 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:22:10 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E12-thumb.jpg
+2025-12-07 22:22:10 | INFO     | scraper    |     [Net] 搜索成功: Watashi wo Tabetai, Hitodenashi -> 想吃掉我的非人少女 (ID: 274810)
+2025-12-07 22:22:10 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E01.mkv
+2025-12-07 22:22:10 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:22:10 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E01.nfo
+2025-12-07 22:22:11 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E01-thumb.jpg
+2025-12-07 22:22:11 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E02.mkv
+2025-12-07 22:22:11 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E02.nfo
+2025-12-07 22:22:12 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E02-thumb.jpg
+2025-12-07 22:22:12 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E03.mkv
+2025-12-07 22:22:12 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E03.nfo
+2025-12-07 22:22:13 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E03-thumb.jpg
+2025-12-07 22:22:13 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - S03E01.mp4
+2025-12-07 22:22:13 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - S03E01.nfo
+2025-12-07 22:22:13 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - S03E01-thumb.jpg
+2025-12-07 22:22:13 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - S03E02.mp4
+2025-12-07 22:22:14 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - S03E02.nfo
+2025-12-07 22:22:14 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - S03E02-thumb.jpg
+2025-12-07 22:22:15 | INFO     | scraper    |     [Net] 搜索成功: Spy x Family - -> 间谍过家家 (ID: 120089)
+2025-12-07 22:22:15 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - - S01E38.mkv
+2025-12-07 22:22:15 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/38?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:22:15 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - - S01E39.mkv
+2025-12-07 22:22:15 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/39?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:22:15 | INFO     | scraper    |     [Net] 搜索成功: Watashi wo Tabetai, Hitodenashi - -> 想吃掉我的非人少女 (ID: 274810)
+2025-12-07 22:22:15 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - - S01E01.mkv
+2025-12-07 22:22:15 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - - S01E01.nfo
+2025-12-07 22:22:16 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - - S01E01-thumb.jpg
+2025-12-07 22:22:16 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - - S01E02.mkv
+2025-12-07 22:22:16 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - - S01E02.nfo
+2025-12-07 22:22:17 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - - S01E02-thumb.jpg
+2025-12-07 22:22:17 | INFO     | scraper    |     [Net] 搜索成功: Chi. Chikyuu no Undou ni Tsuite - -> 地。—关于地球的运动— (ID: 204635)
+2025-12-07 22:22:17 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - - S01E08.mkv
+2025-12-07 22:22:17 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:22:18 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - - S01E08-thumb.jpg
+2025-12-07 22:22:18 | INFO     | monitor    | [System] 正在执行内存回收...
+2025-12-07 22:22:18 | INFO     | scraper    |     [System] 内存释放: 已清理 6 条缓存并重置网络连接
+2025-12-07 22:22:18 | INFO     | monitor    | [System] 内存回收完成，回收对象数: 186
+2025-12-07 22:22:18 | INFO     | monitor    | --- 扫描结束，处理文件数: 15 ---
+2025-12-07 22:22:32 | INFO     | monitor    | --- 开始新一轮扫描: C:\Users\ly177\Desktop\anime\Downloads\Torrents ---
+2025-12-07 22:22:33 | INFO     | scraper    |     [Net] 搜索成功: Spy x Family -> 间谍过家家 (ID: 120089)
+2025-12-07 22:22:33 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E38.mkv
+2025-12-07 22:22:34 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:22:34 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/38?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:22:34 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E39.mkv
+2025-12-07 22:22:34 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/39?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:22:34 | INFO     | scraper    |     [Net] 搜索成功: Chi. Chikyuu no Undou ni Tsuite -> 地。—关于地球的运动— (ID: 204635)
+2025-12-07 22:22:34 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E08.mkv
+2025-12-07 22:22:34 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:22:35 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:22:35 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E08-thumb.jpg
+2025-12-07 22:22:35 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E10.mkv
+2025-12-07 22:22:36 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:22:36 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E10-thumb.jpg
+2025-12-07 22:22:36 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E12.mkv
+2025-12-07 22:22:36 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:22:37 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E12-thumb.jpg
+2025-12-07 22:22:37 | INFO     | scraper    |     [Net] 搜索成功: Watashi wo Tabetai, Hitodenashi -> 想吃掉我的非人少女 (ID: 274810)
+2025-12-07 22:22:37 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E01.mkv
+2025-12-07 22:22:37 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:22:38 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E01.nfo
+2025-12-07 22:22:38 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E01-thumb.jpg
+2025-12-07 22:22:38 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E02.mkv
+2025-12-07 22:22:38 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E02.nfo
+2025-12-07 22:22:39 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E02-thumb.jpg
+2025-12-07 22:22:39 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E03.mkv
+2025-12-07 22:22:39 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E03.nfo
+2025-12-07 22:22:40 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E03-thumb.jpg
+2025-12-07 22:22:40 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - S03E01.mp4
+2025-12-07 22:22:40 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - S03E01.nfo
+2025-12-07 22:22:41 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - S03E01-thumb.jpg
+2025-12-07 22:22:41 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - S03E02.mp4
+2025-12-07 22:22:41 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - S03E02.nfo
+2025-12-07 22:22:42 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - S03E02-thumb.jpg
+2025-12-07 22:22:42 | INFO     | monitor    | [System] 正在执行内存回收...
+2025-12-07 22:22:42 | INFO     | scraper    |     [System] 内存释放: 已清理 3 条缓存并重置网络连接
+2025-12-07 22:22:42 | INFO     | monitor    | [System] 内存回收完成，回收对象数: 96
+2025-12-07 22:22:42 | INFO     | monitor    | --- 扫描结束，处理文件数: 10 ---
+2025-12-07 22:27:51 | INFO     | monitor    | --- 开始新一轮扫描: C:\Users\ly177\Desktop\anime\Downloads\Torrents ---
+2025-12-07 22:27:52 | INFO     | scraper    |     [Net] 搜索成功: Spy x Family -> 间谍过家家 (ID: 120089)
+2025-12-07 22:27:52 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E38.mkv
+2025-12-07 22:27:52 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:27:53 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/38?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:27:53 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 01/Spy x Family - S01E39.mkv
+2025-12-07 22:27:53 | ERROR    | scraper    | [!] 网络请求失败: 404 Client Error: Not Found for url: https://api.themoviedb.org/3/tv/120089/season/1/episode/39?api_key=0beaf65ffc9f356db235b663d81db7be&language=zh-CN
+2025-12-07 22:27:53 | INFO     | scraper    |     [Net] 搜索成功: Chi. Chikyuu no Undou ni Tsuite -> 地。—关于地球的运动— (ID: 204635)
+2025-12-07 22:27:53 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E08.mkv
+2025-12-07 22:27:53 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:27:54 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:27:54 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E08-thumb.jpg
+2025-12-07 22:27:54 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E10.mkv
+2025-12-07 22:27:55 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:27:55 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E10-thumb.jpg
+2025-12-07 22:27:55 | INFO     | linker     |     [Link] 整理成功: 地。—关于地球的运动—/Season 01/Chi. Chikyuu no Undou ni Tsuite - S01E12.mkv
+2025-12-07 22:27:55 | INFO     | saver      |     [Save] NFO 已生成: Chi.nfo
+2025-12-07 22:27:56 | INFO     | saver      |     [Save] 封面已下载: Chi. Chikyuu no Undou ni Tsuite - S01E12-thumb.jpg
+2025-12-07 22:27:56 | INFO     | scraper    |     [Net] 搜索成功: Watashi wo Tabetai, Hitodenashi -> 想吃掉我的非人少女 (ID: 274810)
+2025-12-07 22:27:56 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E01.mkv
+2025-12-07 22:27:56 | INFO     | saver      |     [Series] tvshow.nfo 已生成
+2025-12-07 22:27:57 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E01.nfo
+2025-12-07 22:27:57 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E01-thumb.jpg
+2025-12-07 22:27:57 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E02.mkv
+2025-12-07 22:27:58 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E02.nfo
+2025-12-07 22:27:58 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E02-thumb.jpg
+2025-12-07 22:27:58 | INFO     | linker     |     [Link] 整理成功: 想吃掉我的非人少女/Season 01/Watashi wo Tabetai, Hitodenashi - S01E03.mkv
+2025-12-07 22:27:58 | INFO     | saver      |     [Save] NFO 已生成: Watashi wo Tabetai, Hitodenashi - S01E03.nfo
+2025-12-07 22:27:59 | INFO     | saver      |     [Save] 封面已下载: Watashi wo Tabetai, Hitodenashi - S01E03-thumb.jpg
+2025-12-07 22:27:59 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - S03E01.mp4
+2025-12-07 22:27:59 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - S03E01.nfo
+2025-12-07 22:28:00 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - S03E01-thumb.jpg
+2025-12-07 22:28:00 | INFO     | linker     |     [Link] 整理成功: 间谍过家家/Season 03/Spy x Family - S03E02.mp4
+2025-12-07 22:28:00 | INFO     | saver      |     [Save] NFO 已生成: Spy x Family - S03E02.nfo
+2025-12-07 22:28:01 | INFO     | saver      |     [Save] 封面已下载: Spy x Family - S03E02-thumb.jpg
+2025-12-07 22:28:01 | INFO     | monitor    | [System] 正在执行内存回收...
+2025-12-07 22:28:01 | INFO     | scraper    |     [System] 内存释放: 已清理 3 条缓存并重置网络连接
+2025-12-07 22:28:01 | INFO     | monitor    | [System] 内存回收完成，回收对象数: 96
+2025-12-07 22:28:01 | INFO     | monitor    | --- 扫描结束，处理文件数: 10 ---
