@@ -12,6 +12,7 @@ from core.scraper import TMDBScraper
 from core.saver import DataSaver
 from core.linker import FileLinker
 from core.mapping import MappingManager
+from core.seasonal import SeasonalManager
 
 class MediaMonitor:
     def __init__(self, scan_root: Path, library_root: Path):
@@ -32,6 +33,7 @@ class MediaMonitor:
         self.saver = DataSaver(download_images=dl_img, generate_nfo=gen_nfo)
         self.linker = FileLinker(target_root=library_root, enabled=do_link)
         self.mapping_manager = MappingManager()
+        self.seasonal_manager = SeasonalManager(self.scraper)
         
         # 运行状态控制
         self._running = False

@@ -136,6 +136,41 @@
         
         .config-item { margin-bottom: 1.5rem; }
         .config-label { font-size: 0.85rem; font-weight: 600; color: #6b7280; margin-bottom: 0.5rem; display: block; text-transform: uppercase; }
+
+        /* 新番卡片网格 */
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.5rem;
+        }
+        .anime-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border: 1px solid #e5e7eb;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .anime-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .anime-poster {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            background-color: #eee;
+        }
+        .anime-info { padding: 0.8rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .anime-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.4; }
+        .anime-date { font-size: 0.8rem; color: #6b7280; margin-bottom: 0.5rem; }
+        .anime-rating { 
+            margin-top: auto; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            color: #f59e0b; 
+            display: flex; align-items: center; 
+        }
     </style>
 </head>
 <body>
@@ -155,6 +190,9 @@
             <div class="nav-item" :class="{ active: currentTab === 'fix' }" @click="currentTab = 'fix'; fetchUnidentified()">
                 <i class="fa-solid fa-wrench"></i> 人工修正
                 <span class="badge-count" v-if="unidentifiedCount > 0">{{ unidentifiedCount }}</span>
+            </div>
+            <div class="nav-item" :class="{ active: currentTab === 'seasonal' }" @click="currentTab = 'seasonal'; fetchSeasonal()">
+                <i class="fa-solid fa-calendar-days"></i> 当季新番
             </div>
             <div class="nav-item" :class="{ active: currentTab === 'config' }" @click="currentTab = 'config'; fetchConfig()">
                 <i class="fa-solid fa-gear"></i> 参数设置
@@ -326,6 +364,36 @@
                 </div>
             </div>
 
+
+            <!-- 4. 当季新番视图 -->
+            <div v-if="currentTab === 'seasonal'">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="text-muted small">
+                        数据来源: TMDB (按热度排序) · 更新时间: {{ formatTime(seasonalData.updated_at) }}
+                    </div>
+                    <button class="btn btn-sm btn-primary-custom" @click="refreshSeasonal" :disabled="loadingSeasonal">
+                        <i class="fa-solid fa-sync" :class="{'fa-spin': loadingSeasonal}"></i> 刷新列表
+                    </button>
+                </div>
+
+                <div class="anime-grid">
+                    <div class="anime-card" v-for="item in seasonalData.list" :key="item.id">
+                        <img :src="item.poster_path ? 'https://image.tmdb.org/t/p/w342' + item.poster_path : 'https://via.placeholder.com/300x450?text=No+Poster'" 
+                            class="anime-poster" loading="lazy">
+                        <div class="anime-info">
+                            <div class="anime-title text-truncate-2" :title="item.name">{{ item.name }}</div>
+                            <div class="anime-date">{{ item.first_air_date }}</div>
+                            <div class="anime-rating">
+                                <i class="fa-solid fa-star me-1"></i> {{ item.vote_average ? item.vote_average.toFixed(1) : 'N/A' }}
+                                <!-- 这里可以加个按钮，点击直接复制 ID -->
+                                <span class="ms-auto text-muted small fw-normal" style="cursor:pointer" 
+                                    @click="copyId(item.id)" title="点击复制 ID">ID: {{ item.id }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -335,7 +403,7 @@
 
 <script>
     const { createApp, ref, computed, onMounted, nextTick } = Vue;
-
+    
     createApp({
         setup() {
             const currentTab = ref('logs');
@@ -466,6 +534,38 @@
                 try { await axios.post(`${API_BASE}/api/config`, { section, key, value }); alert("保存成功"); } catch(e){ alert("保存失败"); }
             };
 
+            if(currentTab.value === 'seasonal') return '当季热播新番';
+            const seasonalData = ref({ updated_at: 0, list: [] });
+            const loadingSeasonal = ref(false);
+            // 获取数据
+            const fetchSeasonal = async () => {
+                try {
+                    const res = await axios.get(`${API_BASE}/api/seasonal`);
+                    seasonalData.value = res.data;
+                } catch(e) {}
+            };
+
+            // 强制刷新
+            const refreshSeasonal = async () => {
+                loadingSeasonal.value = true;
+                try {
+                    const res = await axios.post(`${API_BASE}/api/seasonal/refresh`);
+                    seasonalData.value = res.data;
+                } catch(e) { alert("刷新失败"); }
+                loadingSeasonal.value = false;
+            };
+
+            // 辅助函数: 格式化时间戳
+            const formatTime = (ts) => {
+                if(!ts) return '未同步';
+                return new Date(ts * 1000).toLocaleString();
+            };
+
+            // 辅助函数: 复制ID
+            const copyId = (id) => {
+                navigator.clipboard.writeText(id).then(() => alert(`ID ${id} 已复制，可用于人工修正`));
+            };
+
             onMounted(() => {
                 fetchStatus();
                 fetchLogs();
@@ -482,7 +582,7 @@
             return {
                 currentTab, logs, status, config, unidentifiedFiles, unidentifiedCount, scanInterval, autoScroll,
                 formatLog, refreshData, startScan, stopScan, scanOnce, fetchLogs, copyLogs,
-                fetchUnidentified, submitIdentify, fetchConfig, saveConfig, 
+                fetchUnidentified, submitIdentify, fetchConfig, saveConfig, seasonalData, loadingSeasonal, fetchSeasonal, refreshSeasonal, formatTime, copyId,
                 // [新增] 页面标题计算
                 pageTitle: computed(() => {
                     if(currentTab.value === 'logs') return '系统控制台';

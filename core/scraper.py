@@ -1,4 +1,6 @@
 import requests
+import datetime
+
 from urllib.parse import quote
 from typing import Optional, Dict, Any
 
@@ -168,3 +170,54 @@ class TMDBScraper:
         # 注意：如果你在 Saver 里也用了 Session，Saver 也需要类似的逻辑
         
         logger.info(f"    [System] 内存释放: 已清理 {cache_size} 条缓存并重置网络连接")
+
+    def get_current_season_anime(self, page: int = 1) -> Dict:
+        """
+        获取当季新番列表
+        返回 TMDB API 的原始响应数据
+        参考: https://developers.themoviedb.org/3/discover/tv-discover
+        逻辑: 根据当前日期计算季度起止日期，筛选出首播日期在该范围内的动画番剧
+        过滤条件:
+        - 类型: 动画 (with_genres=16)
+        - 语言: 日语 (with_original_language=ja)
+        - 排序: 按热度排序 (sort_by=popularity.desc)
+        - 分页: 支持分页查询 (page 参数)
+        备注: 该方法适用于获取当前季度的热门新番列表，方便用户了解最新的动漫作品。
+        """
+        today = datetime.date.today()
+        year = today.year
+        month = today.month
+
+        # 1. 计算当前季度的起止日期
+        # Q1: 1-3月, Q2: 4-6月, Q3: 7-9月, Q4: 10-12月
+        if 1 <= month <= 3:
+            start_date = f"{year}-01-01"
+            end_date = f"{year}-03-31"
+        elif 4 <= month <= 6:
+            start_date = f"{year}-04-01"
+            end_date = f"{year}-06-30"
+        elif 7 <= month <= 9:
+            start_date = f"{year}-07-01"
+            end_date = f"{year}-09-30"
+        else:
+            start_date = f"{year}-10-01"
+            end_date = f"{year}-12-31"
+
+        endpoint = "/discover/tv"
+        params = {
+            "api_key": self.api_key,
+            "language": self.language,
+            "sort_by": "popularity.desc",       # 按热度排序
+            "first_air_date.gte": start_date,   # 首播日期 >= 季度开始
+            "first_air_date.lte": end_date,     # 首播日期 <= 季度结束
+            "with_genres": "16",                # 16 = 动画 (Animation)
+            "with_original_language": "ja",     # 原声语言 = 日语 (过滤掉欧美动画)
+            "page": page,
+            "include_null_first_air_dates": "false"
+        }
+
+        data = self._get(endpoint, params)
+        if data:
+            print(f"    [Net] 获取当季新番成功: {start_date} ~ {end_date}")
+            return data
+        return {"results": []}

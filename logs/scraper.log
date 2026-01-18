@@ -503,3 +503,12 @@
 2026-01-01 17:27:12 | INFO     | mapping    | [Mapping] 更新映射: Spy x Family - S01E38 -> {'season': 3, 'episode': 1}
 2026-01-01 17:27:12 | INFO     | monitor    | [API] 手动修正: Spy x Family - S01E39 -> ID:None, S3E2
 2026-01-01 17:27:12 | INFO     | mapping    | [Mapping] 更新映射: Spy x Family - S01E39 -> {'season': 3, 'episode': 2}
+2026-01-18 19:38:03 | INFO     | server     | [Server] Mode: 使用默认子目录 -> C:\Users\ly177\Desktop\anime\Anime
+2026-01-18 19:38:03 | ERROR    | scraper    | [!] 警告: config.ini 中未配置 TMDB API Key，网络刮削将无法工作！
+2026-01-18 19:38:19 | INFO     | seasonal   | [Seasonal] 开始刷新当季新番列表...
+2026-01-18 19:38:19 | INFO     | seasonal   | [Seasonal] 刷新完成，共获取 0 部番剧
+2026-01-18 19:38:21 | INFO     | seasonal   | [Seasonal] 开始刷新当季新番列表...
+2026-01-18 19:38:21 | INFO     | seasonal   | [Seasonal] 刷新完成，共获取 0 部番剧
+2026-01-18 19:39:10 | INFO     | server     | [Server] Mode: 使用默认子目录 -> C:\Users\ly177\Desktop\anime\Anime
+2026-01-18 19:39:22 | INFO     | seasonal   | [Seasonal] 开始刷新当季新番列表...
+2026-01-18 19:39:25 | INFO     | seasonal   | [Seasonal] 刷新完成，共获取 40 部番剧

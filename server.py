@@ -158,5 +158,17 @@ def manual_identify(req: IdentifyRequest):
     else:
         raise HTTPException(status_code=404, detail=f"无法找到 '{req.keyword}'")
     
+# [新增] 获取当季新番
+@app.get("/api/seasonal")
+def get_seasonal_anime():
+    data = monitor.seasonal_manager.get_data()
+    return data
+
+# [新增] 强制刷新新番
+@app.post("/api/seasonal/refresh")
+def refresh_seasonal_anime():
+    data = monitor.seasonal_manager.refresh()
+    return data
+    
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
